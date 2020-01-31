@@ -41,10 +41,10 @@ public class PrintUniqueDigits {
     public static void main(String[] args) {
         List<List<Integer>> input = new ArrayList<>();
         List<Integer> temp1 = new ArrayList<>();
-        temp1.add(1);temp1.add(2000000232);
+        temp1.add(1);temp1.add(20);
         input.add(temp1);
         List<Integer> temp2 = new ArrayList<>();
-        temp2.add(9);temp2.add(1992384782);
+        temp2.add(9);temp2.add(19);
         input.add(temp2);
         System.out.println("Result: "+PrintUniqueDigits.countNumbersWithUniqueDigits(input));
     }

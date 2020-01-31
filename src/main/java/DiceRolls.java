@@ -62,7 +62,7 @@ public class DiceRolls {
         } else {
             for (int i = 1; i <= 6; i++) {
                 //to eliminate bad decision trees
-                int min = sumSoFar + i + 1 * (dice - 1);
+                int min = sumSoFar + i + (dice - 1);
                 int max = sumSoFar + i + 6 * (dice - 1);
                 //if target lies between the min and max values then only proceed
                 if(min <= target && target <= max) {

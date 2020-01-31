@@ -6,32 +6,31 @@ package sorting;
  * average case : O(n log n)
  * worst case : O(n^2)
  *
- * even though the worst case is O(n^2) quicksort is preferred as against merge sort since purely based on number of comparisons and swaps of elements, quicksort
- * wins.
+ * even though the worst case is O(n^2) quicksort is preferred as against merge sort since purely based on number of
+ * comparisons and swaps of elements, quicksort wins.
  * it is in-place
- * the selection of the pivot can improve the performance. if the pivot is randomly selected, quicksort performs efficiently
+ * the selection of the pivot can improve the performance. if the pivot is randomly selected, quicksort
+ * performs efficiently
  *
  */
 public class QuickSort {
 
     int[] input = {5,9,2,3,10,1,7,6};
 
-    public void quickSort(int low, int high){
-        if(low > high)
+    public void quickSort(int low, int high) {
+        if (low > high)
             return;
-        else{
-            int q = partition(low,high);
-            //call quickSort(low, q-1)
-            quickSort(low, q-1);
-            //call quickSort(q+1, high)
-            quickSort(q+1, high);
-        }
+        int q = partition(low, high);
+        //call quickSort(low, q-1)
+        quickSort(low, q - 1);
+        //call quickSort(q+1, high)
+        quickSort(q + 1, high);
     }
 
-    public int partition(int low, int high){
+    public int partition(int low, int high) {
         int pivot = input[high];
         int i = low - 1;
-        for(int j = low; j <= high - 1; j++){
+        for(int j = low; j < high; j++){
             if(input[j] <= pivot){
                 i++;
                 int temp = input[i];
@@ -50,7 +49,15 @@ public class QuickSort {
         input[i+1] = pivot;
 
         //return the index of the pivot element
+        display(input);
         return i+1;
+    }
+
+    private void display(int[] arr) {
+        System.out.println("Array: ");
+        for(int n: arr)
+            System.out.print("\t"+n);
+        System.out.println();
     }
 
     public static void main(String[] args) {

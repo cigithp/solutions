@@ -31,9 +31,9 @@ public class Graph {
         result.add(v);
 
         // 3. create iterator and iterate over the edges for the vertex v
-        Iterator<Integer> list = adjList[v].listIterator();
+        ListIterator list = adjList[v].listIterator();
         while(list.hasNext()) {
-            int curr = list.next();
+            int curr = (Integer)list.next();
             // 4. if the vertex is not visited then call DFS again
             if(!visited[curr])
                 DFSHelper(curr, visited, result);
@@ -56,10 +56,10 @@ public class Graph {
                     res.add(vertex);
                     return res;
                 } else {
-                    Iterator<Integer> iterator = adjList[vertex].iterator();
+                    Iterator iterator = adjList[vertex].iterator();
                     //for each neighbor
                     while(iterator.hasNext()) {
-                        int next = iterator.next();
+                        int next = (int)iterator.next();
                         if(!visited[next]) {
                             queue.offer(next); //add to queue
                             visited[next] = true; //mark the node as visited
@@ -73,17 +73,14 @@ public class Graph {
     }
 
     public List<Integer> TopologicalSort() {
-        boolean[] visited = new boolean[this.v];
-        for(int i = 0; i < visited.length; i++)
-            visited[i] = false;
-
+        int[] visited = new int[this.v];//for detecting cycles
         Stack<Integer> s = new Stack<Integer>();
         List<Integer> result = new ArrayList<Integer>();
 
         //for each vertex - if not visited - call helper
         for(int i = 0; i < this.v; i++)
-            if(!visited[i])
-                topologicalSortHelper(i, visited, s);
+            if(!topologicalSortHelper(i, visited, s))
+                return result;
 
         //at the end - pop everything
         while(!s.isEmpty()) {
@@ -93,21 +90,25 @@ public class Graph {
         return result;
     }
 
-    private void topologicalSortHelper(int v, boolean[] visited, Stack<Integer> s) {
+    private boolean topologicalSortHelper(int v, int[] visited, Stack<Integer> s) {
         //mark visited to true
-        visited[v] = true;
-
+        if(visited[v] == 1)
+            return true;
+        if(visited[v] == -1)
+            return false;
+        visited[v] = -1;
         //iterate over all the edges
-        Iterator<Integer> list = adjList[v].listIterator();
+        ListIterator list = adjList[v].listIterator();
         while(list.hasNext()) {
-            int curr = list.next();
-            if (!visited[curr]) {
-                topologicalSortHelper(curr, visited, s);
+            int curr = (int)list.next();
+            if (!topologicalSortHelper(curr, visited, s)) {
+                return false;
             }
         }
-
+        visited[v] = 1;
         //push the parent at the last - so that while pop parent comes before children
         s.push(v);
+        return true;
     }
 
     public static void main(String[] args) {
