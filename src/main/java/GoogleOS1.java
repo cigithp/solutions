@@ -16,7 +16,8 @@
  * character set is huge
  *
  *
- * 3. Given a matrix of direction with L, R, U, D, at any point you can move to the direction which is written over the cell [i, j]. We have to tell minimum number of modifications to reach from [0, 0] to [N - 1, M - 1] .
+ * 3. Given a matrix of direction with L, R, U, D, at any point you can move to the direction which is written over the cell [i, j].
+ * We have to tell minimum number of modifications to reach from [0, 0] to [N - 1, M - 1] .
  *
  * Example :-
  * R R D

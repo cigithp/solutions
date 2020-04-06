@@ -43,7 +43,7 @@ public class DiceRolls {
      * @param chosen
      * @return
      *
-     * this is not a good idea. looping thru entire list for just the sum
+     * this is not a good idea. loopindg thru entire list for just the sum
      */
     public int addAll(List<Integer> chosen) {
         int sum = 0;
