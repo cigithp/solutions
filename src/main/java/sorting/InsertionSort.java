@@ -4,6 +4,9 @@ package sorting;
  * already sorted - linear - best case
  * partially sorted/not sorted  - quadratic
  *
+ * improvement = do a binary search for comparisons
+ * n logn for compares, n*n for sorts
+ *
  * invariant : 1. elements to the left of pointer (including pointer) are in order
  *             2. elements to the right are not yet seen
  */

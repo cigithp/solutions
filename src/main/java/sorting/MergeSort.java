@@ -5,6 +5,8 @@ package sorting;
  * best case : O(n)
  * average case : O(n log n)
  * worst case : O(n log n)
+ *
+ * invariant = 2 sorted arrays as input
  */
 public class MergeSort {
 
