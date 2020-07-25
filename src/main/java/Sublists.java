@@ -26,7 +26,7 @@ public class Sublists {
 
     public List<List<String>> sublists(List<String> input){
         List<List<String>> result = new ArrayList<List<String>>();
-        sublistsHelper(input, new ArrayList<String>(), result, 0);
+        sublistsHelper(input, new ArrayList<>(), result, 0);
         return result;
     }
 
@@ -34,7 +34,7 @@ public class Sublists {
         //System.out.println("sublistsHelper(input ::"+input+", chosen ::"+chosen+", result ::"+result+", start ::"+start+")");
         if(!result.contains(chosen)) {
             //base case
-            result.add(new ArrayList<String>(chosen));
+            result.add(new ArrayList<>(chosen));
         }
             //recursive case
             for(int i = start; i < input.size(); i++) {
