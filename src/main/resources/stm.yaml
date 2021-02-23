@@ -1,0 +1,28 @@
+---
+matrix:
+  active:
+    events: []
+    next:
+      - CANCEL
+      - COMPLETE
+    previous:
+      - INACTIVE
+      - CANCEL
+  cancel:
+    events: []
+    next:
+      - ACTIVE
+    previous:
+      - INACTIVE
+      - ACTIVE
+  complete:
+    events: []
+    next: []
+    previous:
+      - ACTIVE
+  inactive:
+    events: []
+    next:
+      - ACTIVE
+      - CANCEL
+    previous: []
